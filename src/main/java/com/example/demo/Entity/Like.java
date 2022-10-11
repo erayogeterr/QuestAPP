@@ -1,6 +1,5 @@
 package com.example.demo.Entity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,21 +11,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "user")
 @Data
+@Table(name = "p_like")
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class Like {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
-	@Column (name = "user_name")
-	private String userName;
-	 
-	@Column (name = "password")
-	private String password;
-	
+	Long id;
+	Long postId;
+	Long userId;
 
 }
