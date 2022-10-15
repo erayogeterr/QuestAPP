@@ -31,8 +31,9 @@ public class CommentController {
 	
 	@GetMapping
 	public List<CommentResponse> getAllComments(@RequestParam Optional<Long> userId,
-										@RequestParam Optional<Long> postId) {
+												@RequestParam Optional<Long> postId) {
 		return commentService.getAllCommentsWithParam(userId, postId);
+		
 	}
 	
 	@GetMapping("{/commentId}")
@@ -51,7 +52,7 @@ public class CommentController {
 	}
 	
 	@PutMapping("{/commentId}")
-	public Comment updateComment(@PathVariable Long commentId, @RequestBody CommentUpdateRequest request) {
+	public Comment updateOneComment(@PathVariable Long commentId, @RequestBody CommentUpdateRequest request) {
 		return commentService.updateOneCommentById(commentId, request);
 	}
 	
