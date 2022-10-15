@@ -36,7 +36,7 @@ public class CommentController {
 		
 	}
 	
-	@GetMapping("{/commentId}")
+	@GetMapping("/{commentId}")
 	public Comment getOneComment(@PathVariable Long commentId) {
 		return commentService.getOneCommentById(commentId);
 	}
@@ -46,12 +46,12 @@ public class CommentController {
 		return commentService.createOneComment(request);
 	}
 	
-	@DeleteMapping("{/commentId}")
+	@DeleteMapping("/{commentId}")
 	public void deleteOneComment(@PathVariable Long commentId) {
 		commentService.deleteOneCommentById(commentId);
 	}
 	
-	@PutMapping("{/commentId}")
+	@PutMapping("/{commentId}")
 	public Comment updateOneComment(@PathVariable Long commentId, @RequestBody CommentUpdateRequest request) {
 		return commentService.updateOneCommentById(commentId, request);
 	}

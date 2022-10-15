@@ -3,15 +3,14 @@ package com.example.demo.Repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
+
 
 import com.example.demo.Entity.Comment;
-import com.example.demo.Entity.Post;
+//import com.example.demo.Entity.Post;
 
 public interface CommentRepository extends JpaRepository<Comment, Long> {
 
-	List<Post> findByCommentId(Long commentId);
+	//List<Post> findByCommentId(Long commentId);
 	
 	List<Comment> findByUserIdAndPostId(Long userId, Long postId);
 
@@ -19,8 +18,4 @@ public interface CommentRepository extends JpaRepository<Comment, Long> {
 
 	List<Comment> findByPostId(Long postId);
 	
-	@Query(value = "select 'commented on', c.post_id, u.avatar, u.user_name from "
-			+ "comment c left join user u on u.id = c.user_id "
-			+ "where c.post_id in :postIds limit 5", nativeQuery = true)
-	List<Object> findUserCommentsByPostId(@Param("postIds") List<Long> postIds);
 }
