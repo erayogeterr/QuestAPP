@@ -6,11 +6,13 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
+import com.example.demo.Entity.Like;
 import com.example.demo.Entity.Post;
 import com.example.demo.Entity.User;
 import com.example.demo.Repository.PostRepository;
 import com.example.demo.Requests.PostCreateRequest;
 import com.example.demo.Requests.PostUpdateRequest;
+import com.example.demo.Responses.LikeResponse;
 import com.example.demo.Responses.PostResponse;
 
 @Service
@@ -18,10 +20,15 @@ public class PostService {
 	
 	private PostRepository postRepository;
 	private UserService userService;
+	private LikeService likeService;
 
 	public PostService(PostRepository postRepository, UserService userService) {
 		this.postRepository = postRepository;
 		this.userService = userService;
+	}
+	
+	public void setLikeSevice(LikeService likeService) {
+		this.likeService = likeService;
 	}
 
 	public List<PostResponse> getAllPosts(Optional<Long> userId) {
@@ -31,7 +38,9 @@ public class PostService {
 		} else {
 			list = postRepository.findAll();
 	}
-		return list.stream().map(p -> new PostResponse(p)).collect(Collectors.toList());
+		return list.stream().map(p -> { 
+			List<LikeResponse> likes = likeService.getAllLikesWithParam(Optional.ofNullable(null), Optional.of(p.getId()));
+			return new PostResponse(p, likes);}).collect(Collectors.toList());
 }
 
 	public Post getOnePostById(Long postId) {
