@@ -2,7 +2,6 @@ package com.example.demo.Responses;
 
 import java.util.List;
 
-import com.example.demo.Entity.Like;
 import com.example.demo.Entity.Post;
 
 import lombok.AllArgsConstructor;
@@ -14,12 +13,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class PostResponse {
 	
-	Long id;
-	Long userId;
-	String userName;
-	String title;
-	String text;
-	List<LikeResponse> postLikes;
+	private Long id;
+	private Long userId;
+	private String userName;
+	private String title;
+	private String text;
+	private List<LikeResponse> postLikes;
 
 	public PostResponse (Post entity, List<LikeResponse> likes) { //Mapper
 		this.id = entity.getId();

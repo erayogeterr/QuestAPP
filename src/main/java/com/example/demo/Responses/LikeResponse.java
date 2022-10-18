@@ -11,9 +11,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class LikeResponse {
 
-	Long id;
-	Long userId;
-	Long postId;
+	private Long id;
+	private Long userId;
+	private Long postId;
 	
 	public LikeResponse(Like entity) {
 		this.id = entity.getId();

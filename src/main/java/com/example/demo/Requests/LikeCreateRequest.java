@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class LikeCreateRequest {
 
-	Long id;
-	Long userId;
-	Long postId;
+	private Long id;
+	private Long userId;
+	private Long postId;
 }

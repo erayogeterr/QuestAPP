@@ -11,10 +11,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CommentResponse {
 	
-	Long id;
-	Long userId;
-	String userName;
-	String text;
+	private Long id;
+	private Long userId;
+	private String userName;
+	private String text;
 	
 	public CommentResponse(Comment entity) {
 		this.id = entity.getId();

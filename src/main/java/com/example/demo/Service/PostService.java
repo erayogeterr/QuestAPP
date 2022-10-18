@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.example.demo.Entity.Like;
 import com.example.demo.Entity.Post;
 import com.example.demo.Entity.User;
 import com.example.demo.Repository.PostRepository;
