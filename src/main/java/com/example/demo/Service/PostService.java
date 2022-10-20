@@ -17,8 +17,8 @@ import com.example.demo.Responses.PostResponse;
 @Service
 public class PostService {
 	
-	private PostRepository postRepository;
-	private UserService userService;
+	private final PostRepository postRepository;
+	private final UserService userService;
 	private LikeService likeService;
 
 	public PostService(PostRepository postRepository, UserService userService) {

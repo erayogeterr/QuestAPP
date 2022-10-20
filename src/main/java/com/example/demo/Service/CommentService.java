@@ -18,9 +18,9 @@ import com.example.demo.Responses.CommentResponse;
 @Service
 public class CommentService {
 
-	private CommentRepository commentRepository;
-	private UserService userService;
-	private PostService postService; 
+	private final CommentRepository commentRepository;
+	private final UserService userService;
+	private final PostService postService; 
 	
 	public CommentService(CommentRepository commentRepository, UserService userService, PostService postService) {
 		this.commentRepository = commentRepository;

@@ -16,9 +16,9 @@ import com.example.demo.Responses.LikeResponse;
 @Service
 public class LikeService {
 	
-	private LikeRepository likeRepository;
-	private UserService userService;
-	private PostService postService;
+	private final LikeRepository likeRepository;
+	private final UserService userService;
+	private final PostService postService;
 
 	public LikeService(LikeRepository likeRepository, UserService userService, PostService postService) {
 		this.likeRepository = likeRepository;
@@ -27,7 +27,6 @@ public class LikeService {
 	}
 
 	public List<LikeResponse> getAllLikesWithParam(Optional<Long> userId, Optional<Long> postId) {
-		
 		List<Like> list;
 		if (userId.isPresent() && postId.isPresent()) {
 			list = likeRepository.findByUserIdAndPostId(userId.get(), postId.get());

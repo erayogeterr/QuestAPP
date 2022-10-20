@@ -23,7 +23,7 @@ import com.example.demo.Service.CommentService;
 @RequestMapping("/comments")
 public class CommentController {
 	
-	private CommentService commentService;
+	private final CommentService commentService;
 	
 	public CommentController(CommentService commentService) {
 		this.commentService = commentService;

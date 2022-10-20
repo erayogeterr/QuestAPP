@@ -23,7 +23,7 @@ import com.example.demo.Service.PostService;
 @RequestMapping("/posts")
 public class PostController {
 
-	private PostService postService;
+	private final PostService postService;
 
 	public PostController(PostService postService) {
 		this.postService = postService;
