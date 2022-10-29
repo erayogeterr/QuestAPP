@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.Entity.User;
+import com.example.demo.Responses.UserResponse;
 import com.example.demo.Service.UserService;
 
 @RestController
@@ -30,8 +31,8 @@ public class UserController {
 	}
 	
 	@GetMapping("/{userId}")
-	public User getOneUser(@PathVariable Long userId) {
-		return userService.getOneUserById(userId);
+	public UserResponse getOneUser(@PathVariable Long userId) {
+		return new UserResponse(userService.getOneUserById(userId));
 	}
 	
 	@PostMapping
@@ -47,6 +48,11 @@ public class UserController {
 	@DeleteMapping("/{userId}")
 	public void deleteOneUser(@PathVariable Long userId) {
 		userService.deleteById(userId);
+	}
+	
+	@GetMapping("/activity/{userId}")
+	public List<Object> getUserActivity(@PathVariable Long userId) {
+		return userService.getUserActivity(userId);
 	}
 
 }
