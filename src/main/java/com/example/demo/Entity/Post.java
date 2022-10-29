@@ -1,5 +1,7 @@
 package com.example.demo.Entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -40,6 +44,9 @@ public class Post {
 	@Lob
 	@Column(columnDefinition = "text")
 	private String text; 
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	Date createDate;
 	
 
 }

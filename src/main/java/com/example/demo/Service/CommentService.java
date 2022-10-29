@@ -53,6 +53,7 @@ public class CommentService {
 			commentToSave.setUser(user);
 			commentToSave.setText(request.getText());
 			commentToSave.setCreateDate(new Date());
+			commentToSave.setCreateDate(new Date());
 			return commentRepository.save(commentToSave);
 		} else {
 			return null;
